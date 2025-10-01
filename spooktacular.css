@@ -293,7 +293,26 @@
 
   .roster-table tr:hover{
     background-color: #f9f9f9;
+<<<<<<< HEAD
   }
 
   /* Optional: give a little separation from the hero */
   .hero + .roster { margin-top: var(--space-4); }
+=======
+}
+.page { display: none; }
+.page:target { display: block; }
+.pager a {
+color: var(--ghost);
+background: var(--witch-purple);
+padding: .5rem 1rem; border-radius: .5rem;
+}
+
+.page { display: none; }
+.page:target { display: block; }
+.pager a {
+color: var(--ghost);
+background: var(--witch-purple);
+padding: .5rem 1rem; border-radius: .5rem;
+}
+>>>>>>> 1ac2d4f5753da7f1ee68c21a3857bc9e100a8179
