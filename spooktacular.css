@@ -109,3 +109,18 @@ th {
 tr:hover {
     background-color: #f9f9f9;
 }
+.page { display: none; }
+.page:target { display: block; }
+.pager a {
+color: var(--ghost);
+background: var(--witch-purple);
+padding: .5rem 1rem; border-radius: .5rem;
+}
+
+.page { display: none; }
+.page:target { display: block; }
+.pager a {
+color: var(--ghost);
+background: var(--witch-purple);
+padding: .5rem 1rem; border-radius: .5rem;
+}
