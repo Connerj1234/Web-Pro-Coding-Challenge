@@ -293,19 +293,28 @@
 
 .hero + .roster { margin-top: var(--space-4); }
 
+<<<<<<< HEAD
 #toggle {
   display: none;
 }
 
+=======
+>>>>>>> 1c487dc62fde065cb89daabebc837ab46ead0d70
 #fadeText {
   opacity: 0;
   transition: opacity 1s ease-in-out;
+  font-family: 'Special Elite', cursive;
+  font-size: 1.8rem;
+  color: #e0dada; /* pale, ghostly gray */
+  text-shadow: 1px 1px 4px black;
+  letter-spacing: 1px;
 }
 
 #toggle:checked ~ #fadeText {
   opacity: 1;
 }
 
+<<<<<<< HEAD
 /* ===== Chapters: layout, accessibility ===== */
 .sr-only{
     position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
@@ -487,3 +496,5 @@
 
   /* Small adjustments for readability */
   .chapter p{ line-height: 1.6; max-width: 70ch; }
+=======
+>>>>>>> 1c487dc62fde065cb89daabebc837ab46ead0d70
