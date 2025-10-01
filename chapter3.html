@@ -1,28 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="spooktacular.css">
-    <title>Chapter 3</title>
-<style>
-
-</style>
+  <meta charset="utf-8" />
+  <title>Chapter 3 • Pumpkin Patch</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="spooktacular.css" />
 </head>
 <body>
+  <header>
+    <div class="logo">🎃 Spooktacular Storybook</div>
+    <nav>
+      <a href="index_template.html">Home</a>
+      <a href="chapter1.html">Chapter 1</a>
+      <a href="chapter2.html">Chapter 2</a>
+      <a href="chapter3.html">Chapter 3</a>
+    </nav>
+  </header>
 
-    <header>
-        <div class="logo">
-          🎃 Spooktacular Storybook
+  <main class="chapter theme-patch">
+    <h1 class="chapter__title">Chapter 3: The Pumpkin Patch</h1>
+
+    <!-- Panel 1: Gallery -->
+    <section id="c3-gallery" class="panel is-default" aria-labelledby="c3t1">
+      <h2 id="c3t1" class="sr-only">Lantern Field</h2>
+      <p>
+        Candles wink from hollow grins. The field feels friendly, but the scarecrow keeps one stitched eye open.
+      </p>
+
+      <div class="panels cards">
+        <article class="card">
+          <h3>Lantern Row</h3>
+          <p>Jack-o-lanterns flicker in a steady rhythm.</p>
+          <div class="ghost" aria-hidden="true">🕯️</div>
+        </article>
+
+        <article class="card">
+          <h3>Scarecrow Post</h3>
+          <p>Something rustles when you look away.</p>
+          <div class="ghost werewolf" aria-hidden="true">🪶</div>
+        </article>
+
+        <article class="card">
+          <h3>Bridge Gate</h3>
+          <p>The hinges glow with cold light.</p>
+          <div class="ghost" aria-hidden="true">🗝️</div>
+        </article>
+      </div>
+
+      <p class="pager">
+        <a class="btn btn--primary" href="#c3-gate">Approach the gate →</a>
+      </p>
+    </section>
+
+    <!-- Panel 2: Gate reveal via :target -->
+    <section id="c3-gate" class="panel" aria-labelledby="c3t2">
+      <h2 id="c3t2" class="sr-only">The Gate</h2>
+      <div class="gate-scene">
+        <div class="gate" aria-hidden="true">
+          <span class="gate__leaf gate__leaf--left"></span>
+          <span class="gate__leaf gate__leaf--right"></span>
         </div>
-        <nav>
-          <a href="index_template.html">Home</a>
-          <a href="chapter1.html">Chapter 1</a>
-          <a href="chapter2.html">Chapter 2</a>
-          <a href="chapter3.html">Chapter 3</a>
-        </nav>
-      </header>
+        <p>
+          The latch lifts itself. A path of candles spills forward, out of the field, toward your next page.
+        </p>
+      </div>
 
-    <h1>Chapter 3</h1>
+      <p class="pager">
+        <a class="btn btn--ghost" href="#c3-gallery">← Back</a>
+        <a class="btn btn--primary" href="index_template.html">Return Home</a>
+      </p>
+    </section>
+  </main>
 
-
+  <footer class="site-footer">
+    <p>Every ending is only a turn of the page.</p>
+  </footer>
 </body>
 </html>

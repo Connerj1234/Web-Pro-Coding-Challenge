@@ -293,18 +293,197 @@
 
 .hero + .roster { margin-top: var(--space-4); }
 
-/* Hide the checkbox (acts as the trigger) */
 #toggle {
   display: none;
 }
 
-/* Text is invisible by default */
 #fadeText {
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }
 
-/* When the checkbox is checked, fade the text in */
 #toggle:checked ~ #fadeText {
   opacity: 1;
 }
+
+/* ===== Chapters: layout, accessibility ===== */
+.sr-only{
+    position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
+    clip:rect(0,0,0,0); white-space:nowrap; border:0;
+  }
+
+  .chapter{
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: var(--space-4) var(--space-3);
+    position: relative;
+  }
+
+  /* Chapter headings */
+  .chapter__title{
+    font-family: 'Creepster', cursive;
+    color: var(--pumpkin);
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    margin-bottom: var(--space-3);
+    text-shadow: 0 0 12px rgba(255,117,24,.35);
+  }
+
+  /* Panels via :target (multi-page inside each chapter) */
+  .panel{ display:none; gap: var(--space-2); }
+  .panel.is-default{ display:block; }        /* default when no hash */
+  .panel:target{ display:block; }
+
+  .pager{ margin-top: var(--space-2); display:flex; gap: var(--space-2); flex-wrap:wrap; }
+
+  /* ===== Chapter themes (backgrounds) ===== */
+  .theme-forest{
+    background:
+      radial-gradient(900px 280px at 50% -140px, rgba(75,0,130,.35), rgba(0,0,0,.6)),
+      url('assets/images/forest-silhouette.png') center/cover no-repeat;
+    border-radius: var(--radius);
+  }
+
+  .theme-lair{
+    background:
+      linear-gradient(180deg, rgba(0,0,0,.75), rgba(0,0,0,.9)),
+      radial-gradient(600px 200px at 10% 0%, rgba(75,0,130,.25), transparent 60%);
+    border-radius: var(--radius);
+  }
+
+  .theme-patch{
+    background:
+      linear-gradient(180deg, rgba(34,139,34,.10), rgba(0,0,0,.80)),
+      radial-gradient(900px 240px at 80% -140px, rgba(255,117,24,.25), transparent 60%);
+    border-radius: var(--radius);
+  }
+
+  /* ===== Decorative fog for Chapter 1 ===== */
+  .scene-illustration{ position: relative; min-height: 160px; }
+  .fog, .fog::before{
+    position:absolute; inset:0; content:""; pointer-events:none;
+    background: radial-gradient(40% 60% at 50% 50%, rgba(255,255,255,.12), transparent 70%);
+    filter: blur(6px);
+    animation: drift 60s linear infinite;
+  }
+  .fog--front{ opacity:.25; }
+  .fog--rear{ opacity:.12; animation-duration: 90s; }
+  @keyframes drift{
+    from{ transform: translateX(0); }
+    to  { transform: translateX(-1200px); }
+  }
+
+  /* Lantern toggle (Chapter 1) */
+  .visually-hidden{ position:absolute; left:-9999px; }
+  .toggle{
+    display:inline-flex; align-items:center; gap:.5rem;
+    padding:.5rem .75rem; border-radius:.75rem; cursor:pointer;
+    background: rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15);
+    font-weight:700;
+  }
+  .toggle__dot{
+    width:18px; height:18px; border-radius:999px; background:#777;
+    box-shadow: 0 0 0 2px rgba(255,255,255,.2) inset;
+    transition: transform .2s ease, background .2s ease;
+  }
+  #lantern-toggle:checked + .toggle .toggle__dot{ background: var(--pumpkin); transform: translateX(2px) scale(1.1); }
+
+  .lantern-stage{ position:relative; margin-top: .75rem; min-height: 160px; }
+  .lantern{
+    position:absolute; top: 16px; left: 16px; width: 44px; height: 64px;
+    border:2px solid rgba(255,255,255,.45); border-radius:8px; box-shadow: inset 0 0 8px rgba(255,255,255,.25);
+  }
+  .lantern__glow{
+    position:absolute; inset:6px; border-radius:6px;
+    background: radial-gradient(closest-side, rgba(255,183,77,.85), rgba(255,117,24,.35), transparent 85%);
+    opacity:0; transition: opacity .25s ease;
+  }
+  #lantern-toggle:checked ~ .lantern-stage .lantern__glow{ opacity:1; }
+  .forest__overlay{
+    position:absolute; inset:0; background: radial-gradient(40% 35% at 80% 20%, rgba(255,255,255,.18), transparent 65%);
+    opacity:.08; transition: opacity .25s ease;
+  }
+  #lantern-toggle:checked ~ .lantern-stage .forest__overlay{ opacity:.35; }
+  .lantern__note{ margin-top: 120px; opacity:.85; }
+
+  /* Stars already exist; reuse in final scene of Chapter 1 */
+
+  /* ===== Cauldron lab (Chapter 2) ===== */
+  .controls{ display:flex; align-items:center; gap:.5rem; flex-wrap:wrap; margin-bottom: .75rem; }
+  .controls__label{ margin-right:.25rem; opacity:.9; }
+  .pill{
+    display:inline-flex; align-items:center; cursor:pointer;
+    background: rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15);
+    padding:.35rem .6rem; border-radius: 999px; user-select:none;
+  }
+  .pill input:focus-visible + span{ outline:3px solid var(--pumpkin); outline-offset:3px; }
+
+  .cauldron{
+    --potion: var(--monster-green);
+    position: relative; height: 180px; margin: .5rem 0 1rem; isolation:isolate;
+    background:
+      radial-gradient(60% 40% at 50% 20%, rgba(0,0,0,.65), transparent 70%);
+    border-radius: var(--radius);
+    border:1px solid rgba(255,255,255,.08);
+  }
+  .cauldron::before, .cauldron::after{
+    content:""; position:absolute; left:50%; transform:translateX(-50%);
+    background: #222; border:2px solid #555; border-radius: 0 0 14px 14px;
+  }
+  .cauldron::before{ bottom: 18px; width: 200px; height: 46px; }
+  .cauldron::after{ bottom: 10px; width: 140px; height: 20px; }
+
+  .bubble{
+    position:absolute; bottom: 56px; left:50%;
+    width: 14px; height: 14px; border-radius: 999px;
+    background: var(--potion);
+    filter: drop-shadow(0 0 8px var(--potion));
+    opacity:.9;
+    animation: rise 4s ease-in infinite;
+  }
+  .b1{ transform: translateX(-60px); animation-delay:.0s; }
+  .b2{ transform: translateX(-4px);  animation-delay:.6s; }
+  .b3{ transform: translateX(52px);  animation-delay:1.2s; }
+  @keyframes rise{
+    0%{ transform: translateX(-60px) translateY(0) scale(.9); opacity:.0; }
+    10%{ opacity:1; }
+    100%{ transform: translateX(-60px) translateY(-120px) scale(1.1); opacity:0; }
+  }
+
+  .steam{
+    position:absolute; bottom: 80px; left:50%; transform: translateX(-50%);
+    width: 180px; height: 70px; opacity:.25;
+    background: radial-gradient(closest-side, #fff, transparent 70%);
+    filter: blur(10px);
+    animation: waft 6s ease-in-out infinite;
+  }
+  @keyframes waft{
+    0%,100%{ transform: translateX(-50%) translateY(0); }
+    50%{ transform: translateX(-45%) translateY(-6px); }
+  }
+
+  /* Radio determines potion color using sibling selection */
+  #p-green:checked ~ .cauldron{ --potion: var(--monster-green); }
+  #p-purple:checked ~ .cauldron{ --potion: var(--witch-purple); }
+  #p-amber:checked ~ .cauldron{ --potion: var(--pumpkin); }
+
+  /* ===== Gate animation (Chapter 3) ===== */
+  .gate-scene{ position:relative; min-height: 180px; display:grid; align-items:end; }
+  .gate{
+    position:absolute; inset: 0 0 36px 0; display:grid; place-items:center;
+  }
+  .gate__leaf{
+    position:absolute; bottom: 0; width: 44%; height: 140px; background: rgba(0,0,0,.6);
+    border:1px solid rgba(255,255,255,.12); box-shadow: inset 0 0 18px rgba(255,255,255,.08);
+    transition: transform .6s ease;
+  }
+  .gate__leaf--left{ left: 3%; border-radius: 8px 0 0 8px; transform-origin: left bottom; }
+  .gate__leaf--right{ right: 3%; border-radius: 0 8px 8px 0; transform-origin: right bottom; }
+  /* open the gate when targeted panel is active */
+  #c3-gate.panel:target .gate__leaf--left{ transform: rotateY(35deg) translateX(-6px); }
+  #c3-gate.panel:target .gate__leaf--right{ transform: rotateY(-35deg) translateX(6px); }
+
+  /* Cards in Chapter 3 reuse .card; tighten layout for small screens */
+  .cards{ margin-top: var(--space-2); }
+
+  /* Small adjustments for readability */
+  .chapter p{ line-height: 1.6; max-width: 70ch; }

@@ -1,41 +1,95 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="spooktacular.css">
-    <title>Chapter 1</title>
-<style>
-
-</style>
+  <meta charset="utf-8" />
+  <title>Chapter 1 • Moonlit Forest</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="spooktacular.css" />
 </head>
 <body>
+  <header>
+    <div class="logo">🎃 Spooktacular Storybook</div>
+    <nav>
+      <a href="index_template.html">Home</a>
+      <a href="chapter1.html">Chapter 1</a>
+      <a href="chapter2.html">Chapter 2</a>
+      <a href="chapter3.html">Chapter 3</a>
+    </nav>
+  </header>
 
-    <header>
-        <div class="logo">
-          🎃 Spooktacular Storybook
+  <main class="chapter theme-forest">
+    <h1 class="chapter__title">Chapter 1: Moonlit Forest</h1>
+
+    <!-- Panel 1: Arrival -->
+    <section id="c1-scene1" class="panel is-default" aria-labelledby="c1t1">
+      <h2 id="c1t1" class="sr-only">Arrival</h2>
+      <p>
+        Pines leaned in as the wind hushed the path. A silver fog stretched between the trunks,
+        and somewhere ahead a small light flickered, patient as a heartbeat.
+      </p>
+      <p class="pager">
+        <a class="btn btn--primary" href="#c1-scene2">Follow the flicker →</a>
+      </p>
+      <div class="scene-illustration forest-edges" aria-hidden="true">
+        <div class="fog fog--front"></div>
+        <div class="fog fog--rear"></div>
+      </div>
+    </section>
+
+    <!-- Panel 2: Lantern interaction via :checked -->
+    <section id="c1-scene2" class="panel" aria-labelledby="c1t2">
+      <h2 id="c1t2" class="sr-only">The Lantern</h2>
+
+      <div class="interactive-box">
+        <input type="checkbox" id="lantern-toggle" class="visually-hidden" />
+        <label for="lantern-toggle" class="toggle">
+          <span class="toggle__dot" aria-hidden="true"></span>
+          Light the lantern
+        </label>
+
+        <div class="lantern-stage">
+          <div class="lantern" aria-hidden="true">
+            <div class="lantern__glow"></div>
+          </div>
+          <div class="forest__overlay"></div>
+          <p class="lantern__note">
+            Tip: toggle the switch to brighten the path.
+          </p>
         </div>
-        <nav>
-          <a href="index_template.html">Home</a>
-          <a href="chapter1.html">Chapter 1</a>
-          <a href="chapter2.html">Chapter 2</a>
-          <a href="chapter3.html">Chapter 3</a>
-        </nav>
-      </header>
+      </div>
 
-    <h1>Chapter 1</h1>
+      <p class="pager">
+        <a class="btn btn--ghost" href="#c1-scene1">← Back</a>
+        <a class="btn btn--primary" href="#c1-scene3">Continue →</a>
+      </p>
+    </section>
 
-<input type="checkbox" id="toggle">
-<label for="toggle">Show Text</label>
+    <!-- Panel 3: Whisper and exit to Ch 2 -->
+    <section id="c1-scene3" class="panel" aria-labelledby="c1t3">
+      <h2 id="c1t3" class="sr-only">Whispered Map</h2>
+      <p>
+        As the glow spreads, a pale figure gathers from the fog. It lifts an arm and points east,
+        where the trees break and a hill rises like a sleeping beast. On the ridge is a crooked roofline.
+      </p>
+      <p>
+        The figure fades, leaving the lantern warm in your hand and the path drawn in silver.
+      </p>
+      <p class="pager">
+        <a class="btn btn--ghost" href="#c1-scene2">← Back</a>
+        <a class="btn btn--primary" href="chapter2.html">To Chapter 2: The Witch’s Lair →</a>
+      </p>
 
-<p id="fadeText">In the crooked tower at the edge of the forest, a witch stirred her cauldron with a bone spoon. She whispered the final word of the spell, and the potion bubbled violently, glowing green.</p>
+      <div class="scene-illustration moonbeams" aria-hidden="true">
+        <div class="sky">
+          <span class="star"></span><span class="star"></span><span class="star"></span>
+          <span class="star"></span><span class="star"></span><span class="star"></span>
+        </div>
+      </div>
+    </section>
+  </main>
 
-In the crooked tower at the edge of the forest, a witch stirred her cauldron with a bone spoon. She whispered the final word of the spell, and the potion bubbled violently, glowing green.
-
-“Perfect,” she cackled—just before the mixture hissed, sputtered, and exploded in a burst of sparks.
-
-When the smoke cleared, the witch was gone. In her place, a small black bat hung upside down from the rafters, blinking in surprise.
-
-She flapped her wings once, sighed, and muttered in a squeaky voice,
-“Back to the recipe book…”
-
+  <footer class="site-footer">
+    <p>Moonlight borrowed. Courage required.</p>
+  </footer>
 </body>
 </html>
