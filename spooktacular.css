@@ -101,8 +101,7 @@
     margin: var(--space-4) auto;
     border-radius: var(--radius);
     background:
-      linear-gradient(180deg, rgba(75,0,130,.35), rgba(0,0,0,.6)),
-      url('assets/images/forest-silhouette.png') center/cover no-repeat;
+      linear-gradient(180deg, rgba(75,0,130,.35), rgba(0,0,0,.6)), center/cover no-repeat;
     overflow: clip;
   }
   .hero__title{
@@ -166,8 +165,7 @@
     padding: var(--space-4) var(--space-3);
     border-radius: var(--radius);
     background:
-      linear-gradient(180deg, rgba(75,0,130,.35), rgba(0,0,0,.6)),
-      url('assets/images/forest-silhouette.png') center/cover no-repeat;
+      linear-gradient(180deg, rgba(75,0,130,.35), rgba(0,0,0,.6)), center/cover no-repeat;
     color: var(--ghost);
   }
 
@@ -262,7 +260,6 @@
     padding-inline: var(--space-3);
   }
 
-  /* Restore the previous "card" table look from index_template.html */
   .roster-table{
     margin: 20px auto;
     border-collapse: collapse;
@@ -293,19 +290,16 @@
 
 .hero + .roster { margin-top: var(--space-4); }
 
-<<<<<<< HEAD
 #toggle {
   display: none;
 }
 
-=======
->>>>>>> 1c487dc62fde065cb89daabebc837ab46ead0d70
 #fadeText {
   opacity: 0;
   transition: opacity 1s ease-in-out;
   font-family: 'Special Elite', cursive;
   font-size: 1.8rem;
-  color: #e0dada; /* pale, ghostly gray */
+  color: #e0dada;
   text-shadow: 1px 1px 4px black;
   letter-spacing: 1px;
 }
@@ -314,7 +308,6 @@
   opacity: 1;
 }
 
-<<<<<<< HEAD
 /* ===== Chapters: layout, accessibility ===== */
 .sr-only{
     position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
@@ -339,7 +332,7 @@
 
   /* Panels via :target (multi-page inside each chapter) */
   .panel{ display:none; gap: var(--space-2); }
-  .panel.is-default{ display:block; }        /* default when no hash */
+  .panel.is-default{ display:block; }
   .panel:target{ display:block; }
 
   .pager{ margin-top: var(--space-2); display:flex; gap: var(--space-2); flex-wrap:wrap; }
@@ -347,8 +340,7 @@
   /* ===== Chapter themes (backgrounds) ===== */
   .theme-forest{
     background:
-      radial-gradient(900px 280px at 50% -140px, rgba(75,0,130,.35), rgba(0,0,0,.6)),
-      url('assets/images/forest-silhouette.png') center/cover no-repeat;
+      radial-gradient(900px 280px at 50% -140px, rgba(75,0,130,.35), rgba(0,0,0,.6)), center/cover no-repeat;
     border-radius: var(--radius);
   }
 
@@ -413,8 +405,6 @@
   }
   #lantern-toggle:checked ~ .lantern-stage .forest__overlay{ opacity:.35; }
   .lantern__note{ margin-top: 120px; opacity:.85; }
-
-  /* Stars already exist; reuse in final scene of Chapter 1 */
 
   /* ===== Cauldron lab (Chapter 2) ===== */
   .controls{ display:flex; align-items:center; gap:.5rem; flex-wrap:wrap; margin-bottom: .75rem; }
@@ -487,7 +477,7 @@
   }
   .gate__leaf--left{ left: 3%; border-radius: 8px 0 0 8px; transform-origin: left bottom; }
   .gate__leaf--right{ right: 3%; border-radius: 0 8px 8px 0; transform-origin: right bottom; }
-  /* open the gate when targeted panel is active */
+
   #c3-gate.panel:target .gate__leaf--left{ transform: rotateY(35deg) translateX(-6px); }
   #c3-gate.panel:target .gate__leaf--right{ transform: rotateY(-35deg) translateX(6px); }
 
@@ -496,5 +486,3 @@
 
   /* Small adjustments for readability */
   .chapter p{ line-height: 1.6; max-width: 70ch; }
-=======
->>>>>>> 1c487dc62fde065cb89daabebc837ab46ead0d70
