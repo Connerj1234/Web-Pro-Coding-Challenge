@@ -13,33 +13,92 @@
 </head>
 <body>
     <header>
-        <div class="logo">
-          🎃 Spooktacular Storybook
+      <div class="logo">🎃 Spooktacular Storybook</div>
+      <nav>
+        <a href="index_template.html">Home</a>
+        <a href="chapter1.html">Chapter 1</a>
+        <a href="chapter2.html">Chapter 2</a>
+        <a href="chapter3.html">Chapter 3</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero" aria-labelledby="hero-title">
+        <h1 id="hero-title" class="hero__title">
+          One Moonlit Night, The Pages Began To Whisper…
+        </h1>
+        <p class="hero__subtitle">
+          Turn the first page if you dare. Every choice leads deeper into the story.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="chapter1.html">Start Chapter 1</a>
+          <a class="btn btn--ghost" href="#about">What is this?</a>
         </div>
-        <nav>
-          <a href="chapter1.html#">Chapter 1</a>
-          <a href="chapter2.html#">Chapter 2</a>
-          <a href="chapter3.html#">Chapter 3</a>
-        </nav>
-      </header>
 
-    <h1>CSS Coding Challenge #1</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Team Member Names</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Team Member: Edward </td>
-            </tr>
-            <tr>
-                <td>Team Member: Conner </td>
-            </tr>
+        <!-- Decorative bats, stars rendered via CSS -->
+        <div class="sky" aria-hidden="true">
+          <span class="star"></span><span class="star"></span><span class="star"></span>
+          <span class="bat"></span><span class="bat bat--2"></span><span class="bat bat--3"></span>
+        </div>
+      </section>
 
-        </tbody>
-    </table>
+      <!-- ABOUT / EXPLANATION -->
+      <section id="about" class="about">
+        <h2>About the Storybook</h2>
+        <p>
+          This is a multi-page, CSS-only Halloween storybook that uses semantic HTML,
+          custom properties, keyframe animations, and no JavaScript.
+        </p>
+        <ul class="about__features">
+          <li>Sticky header and animated navigation</li>
+          <li>Hero banner with animated headline and decorative pseudo-elements</li>
+          <li>Interactive hover reveals and subtle parallax</li>
+        </ul>
+      </section>
 
-</body>
+      <!-- FEATURED PANELS / CARDS -->
+      <section class="panels" aria-label="Featured Scenes">
+        <article class="card">
+          <h3>Graveyard Watch</h3>
+          <p>Listen closely for what stirs beneath the ivy stones.</p>
+          <div class="ghost" aria-hidden="true">👻</div>
+          <a class="card__link" href="chapter1.html">Enter</a>
+        </article>
+
+        <article class="card">
+          <h3>Witch’s Lair</h3>
+          <p>Follow the ember trail but mind the broom’s shadow.</p>
+          <div class="ghost" aria-hidden="true">🧙‍♀️</div>
+          <a class="card__link" href="chapter2.html">Enter</a>
+        </article>
+
+        <article class="card">
+          <h3>Moonlit Forest</h3>
+          <p>Between the pines, the path moves when you don’t look.</p>
+          <div class="ghost werewolf" aria-hidden="true">🐺</div>
+          <a class="card__link" href="chapter3.html">Enter</a>
+        </article>
+      </section>
+    </main>
+
+    <section class="roster">
+        <table class="roster-table">
+          <thead>
+            <tr>
+              <th>Team Member Names</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Team Member: Edward</td></tr>
+            <tr><td>Team Member: Conner</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+    <footer class="site-footer">
+      <p>Made with pumpkin, cobwebs, and pure CSS — Spooktacular © 2025</p>
+    </footer>
+  </body>
+
 </html>

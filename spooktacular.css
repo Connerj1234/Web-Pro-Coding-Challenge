@@ -1,3 +1,8 @@
+/* =========================================
+   Spooktacular.css – complete stylesheet
+   ========================================= */
+
+/* -------- Variables (from starter) -------- */
 :root{
     --pumpkin:#FF7518;
     --witch-purple:#4B0082;
@@ -5,109 +10,295 @@
     --black:#000;
     --ghost:#FFF;
     --space-1:0.25rem; --space-2:0.5rem; --space-3:1rem; --space-4:2rem;
+
+    /* additions */
+    --maxw: 1100px;
+    --radius: 14px;
+  }
+
+  /* -------- Global reset and base -------- */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: Arial, sans-serif;
+    color: var(--ghost);
+    min-height: 100svh;
+    background:
+      radial-gradient(1200px 400px at 50% -200px, #1a001a 0%, transparent 60%),
+      linear-gradient(#000 0%, #0a0a0a 100%);
+  }
+
+  /* Reduced motion support (from starter, kept) */
+  @media (prefers-reduced-motion: reduce){
+    * {
+      animation-duration:0.01ms !important;
+      animation-iteration-count:1 !important;
+      transition:none !important;
     }
+  }
 
-html { scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce){
-* { animation-duration:0.01ms !important;
-animation-iteration-count:1 !important;
-transition:none !important; }
-}
+  /* -------- Sticky header and nav (starter + upgrades) -------- */
+  header {
+    position: sticky; top: 0; z-index: 1000; width: 100%;
+    background: var(--black); color: var(--ghost);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: var(--space-2) var(--space-3);
+    box-shadow: 0 2px 10px rgba(0,0,0,.6);
+    font-family: 'Creepster', cursive; /* spooky display font */
+  }
 
-header { position: sticky; top: 0; background: var(--black); color: var(--ghost); }
-nav a {
-display:inline-block; padding: var(--space-2) var(--space-3);
-transition: transform .2s, color .2s;
-}
-nav a:focus, nav a:hover { color: var(--pumpkin); transform: translateY(-2px); }
+  header .logo {
+    font-size: 1.5rem;
+    color: var(--pumpkin);
+    text-shadow: 2px 2px 6px var(--witch-purple);
+  }
 
-.page { display: none; }
-.page:target { display: block; }
-.pager a {
-color: var(--ghost);
-background: var(--witch-purple);
-padding: .5rem 1rem; border-radius: .5rem;
-}
+  nav { display: flex; gap: var(--space-3); }
 
-.ghost {
-    opacity: 0; transform: translateY(10px);
+  nav a {
+    display:inline-block;
+    padding: var(--space-2) var(--space-3);
+    color: var(--ghost);
+    font-weight: bold;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: transform .2s, color .2s, border-color .2s;
+  }
+
+  nav a:focus, nav a:hover {
+    color: var(--pumpkin);
+    transform: translateY(-2px);
+    border-bottom: 2px solid var(--pumpkin);
+  }
+
+  /* -------- Main wrapper spacing -------- */
+  main { max-width: var(--maxw); margin: 0 auto; padding: var(--space-4) var(--space-3); }
+
+  /* -------- Page targeting system (from starter) -------- */
+  .page { display: none; }
+  .page:target { display: block; }
+
+  /* Pager buttons (from starter) */
+  .pager a {
+    color: var(--ghost);
+    background: var(--witch-purple);
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    text-decoration: none;
+  }
+
+  /* -------- Reusable buttons -------- */
+  .btn{
+    display: inline-block;
+    padding: .75rem 1.25rem;
+    border-radius: .75rem;
+    text-decoration: none;
+    font-weight: 700;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+  }
+  .btn:focus-visible { outline: 3px solid var(--pumpkin); outline-offset: 3px; }
+  .btn--primary{ background: var(--pumpkin); color: #2b1200; box-shadow: 0 6px 16px rgba(255,117,24,.35); }
+  .btn--primary:hover{ transform: translateY(-2px); }
+  .btn--ghost{ background: transparent; color: var(--ghost); border: 2px solid var(--ghost); }
+  .btn--ghost:hover{ background: rgba(255,255,255,.08); transform: translateY(-2px); }
+
+  /* -------- HERO section -------- */
+  .hero{
+    position: relative;
+    padding: clamp(3rem, 8vw, 7rem) var(--space-3);
+    margin: var(--space-4) auto;
+    border-radius: var(--radius);
+    background:
+      linear-gradient(180deg, rgba(75,0,130,.35), rgba(0,0,0,.6)),
+      url('assets/images/forest-silhouette.png') center/cover no-repeat;
+    overflow: clip;
+  }
+  .hero__title{
+    font-family: 'Creepster', cursive;
+    font-size: clamp(2rem, 5vw, 4rem);
+    color: var(--pumpkin);
+    text-shadow: 0 0 8px rgba(255,117,24,.6), 0 0 32px rgba(75,0,130,.6);
+    letter-spacing: .5px;
+    animation: glow 3.5s ease-in-out infinite;
+  }
+  .hero__subtitle{
+    margin-top: var(--space-2);
+    max-width: 60ch;
+    line-height: 1.6;
+    opacity: .9;
+  }
+  .hero__actions{ margin-top: var(--space-3); display: flex; gap: var(--space-3); flex-wrap: wrap; }
+
+  /* Decorative sky layer for hero */
+  .sky{ position: absolute; inset: 0; pointer-events: none; }
+  .star, .bat{ position: absolute; display: block; }
+
+  /* Stars */
+  .star{
+    width: 3px; height: 3px; background: #fff; border-radius: 50%;
+    top: calc(10% + 60% * var(--i, 0)); left: calc(5% + 90% * var(--j, 0));
+    opacity: .5; animation: twinkle 4s ease-in-out infinite alternate;
+  }
+  .star:nth-child(1){ --i:.1; --j:.2; }
+  .star:nth-child(2){ --i:.5; --j:.7; }
+  .star:nth-child(3){ --i:.8; --j:.4; }
+
+  /* Bats */
+  .bat{
+    width: 28px; height: 18px; top: 12%; left: 10%; background: currentColor; color: var(--ghost);
+    animation: fly 12s linear infinite; opacity:.35;
+  }
+  .bat::before, .bat::after{
+    content:""; position:absolute; inset: 0; border-radius: 50% 50% 0 0;
+    width: 14px; height: 10px; background: var(--ghost);
+  }
+  .bat::before{ transform: translateX(-12px) rotate(-15deg); }
+  .bat::after{ transform: translateX(12px) rotate(15deg); }
+  .bat--2{ top: 25%; left: 70%; animation-duration: 10s; }
+  .bat--3{ top: 40%; left: 30%; animation-duration: 14s; }
+
+  /* -------- About block -------- */
+  .about{ margin-top: var(--space-4); }
+  .about h2{
+    font-family: 'Creepster', cursive;
+    color: var(--monster-green);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+  }
+  .about p{ margin-top: var(--space-2); max-width: 65ch; }
+  .about__features{
+    margin-top: var(--space-2);
+    display: grid; gap: .5rem;
+    padding-left: 1.25rem; list-style: disc;
+  }
+
+  /* -------- Panels and cards -------- */
+  .panels{
+    margin-top: var(--space-4);
+    display: grid; gap: var(--space-3);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+  .card{
+    position: relative; isolation: isolate;
+    background: rgba(0,0,0,.5);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: var(--radius);
+    padding: var(--space-3);
+    box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    transform: translateZ(0);
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .card:hover{
+    transform: translateY(-4px);
+    border-color: rgba(255,117,24,.35);
+    box-shadow: 0 16px 40px rgba(255,117,24,.15);
+  }
+  .card h3{
+    font-family: 'Creepster', cursive;
+    color: var(--pumpkin);
+    margin-bottom: .25rem;
+  }
+  .card p{ opacity: .9; margin-bottom: var(--space-2); }
+  .card__link{
+    text-decoration: none; font-weight: 700;
+    color: var(--ghost); border-bottom: 2px solid var(--witch-purple);
+  }
+  .card__link:hover{ color: var(--pumpkin); border-color: var(--pumpkin); }
+
+  /* Use starter micro-interactions for inner icons */
+  .card .ghost{ font-size: 1.6rem; }
+
+  /* -------- Footer -------- */
+  .site-footer{
+    margin-top: var(--space-4);
+    padding: var(--space-3);
+    text-align: center;
+    color: #cfcfcf;
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0, rgba(255,255,255,.04) 100%);
+    border-top: 1px solid rgba(255,255,255,.08);
+  }
+
+  /* -------- Starter interactive snippets (kept) -------- */
+  /* Hover-revealed ghost */
+  .ghost {
+    opacity: 0;
+    transform: translateY(10px);
     transition: opacity .3s ease, transform .3s ease;
-    }
-    .card:where(:hover, :focus-within) .ghost {
-    opacity: 1; transform: translateY(0);
-    }
+  }
+  .card:where(:hover, :focus-within) .ghost {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-@keyframes morph {
+  /* Character transform (werewolf) */
+  @keyframes morph {
     0% { filter: hue-rotate(0); transform: scale(1); }
     50%{ filter: hue-rotate(45deg); transform: scale(1.05); }
     100%{ filter: hue-rotate(0); transform: scale(1); }
-    }
-    .werewolf:hover { animation: morph 1.6s ease-in-out infinite; }
+  }
+  .werewolf:hover { animation: morph 1.6s ease-in-out infinite; }
 
-/* Header & Nav Customization */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--space-2) var(--space-3);
-  font-family: 'Creepster', cursive; /* spooky display font */
-  z-index: 1000;
-}
+  /* -------- Animations -------- */
+  @keyframes glow{
+    0% { text-shadow: 0 0 8px rgba(255,117,24,.5), 0 0 22px rgba(75,0,130,.35); }
+    50%{ text-shadow: 0 0 18px rgba(255,117,24,.9), 0 0 36px rgba(75,0,130,.65); }
+    100%{ text-shadow: 0 0 8px rgba(255,117,24,.5), 0 0 22px rgba(75,0,130,.35); }
+  }
+  @keyframes twinkle{
+    from{ opacity: .25; transform: translateY(0); }
+    to  { opacity: .8; transform: translateY(-2px); }
+  }
+  @keyframes fly{
+    0%{ transform: translateX(0) translateY(0) scale(1); }
+    50%{ transform: translateX(30vw) translateY(-2vh) scale(1.05); }
+    100%{ transform: translateX(60vw) translateY(0) scale(1); }
+  }
 
-header .logo {
-  font-size: 1.5rem;
-  color: var(--pumpkin);
-  text-shadow: 2px 2px 6px var(--witch-purple);
-}
+  /* -------- Reduced motion overrides for hero bits -------- */
+  @media (prefers-reduced-motion: reduce){
+    .hero__title, .star, .bat { animation: none !important; }
+  }
 
-nav {
-  display: flex;
-  gap: var(--space-3);
-}
+  /* Team roster table reset and layout */
+.roster{
+    margin-top: var(--space-4);
+    padding-inline: var(--space-3);
+  }
 
-nav a {
-  color: var(--ghost);
-  font-weight: bold;
-  text-decoration: none;
-  border-bottom: 2px solid transparent;
-}
-
-nav a:hover,
-nav a:focus {
-  border-bottom: 2px solid var(--pumpkin);
-}
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-h1 {
-    text-align: center;
-    margin-top: 20px;
-}
-
-table {
+  /* Restore the previous "card" table look from index_template.html */
+  .roster-table{
     margin: 20px auto;
     border-collapse: collapse;
-    width: 50%;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+    width: clamp(320px, 90%, 700px);
+    background-color: #fff;    /* force white background */
+    color: #111;               /* readable dark text inside the table */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;          /* clip rounded corners */
+  }
 
-th, td {
-    padding: 10px;
+  .roster-table th,
+  .roster-table td{
+    padding: 12px 16px;
     text-align: left;
     border-bottom: 1px solid #ddd;
-}
+  }
 
-th {
+  .roster-table th{
     background-color: #f2f2f2;
-}
+    font-weight: 700;
+    color: #111;
+  }
 
-tr:hover {
+  .roster-table tr:hover{
     background-color: #f9f9f9;
+<<<<<<< HEAD
+  }
+
+  /* Optional: give a little separation from the hero */
+  .hero + .roster { margin-top: var(--space-4); }
+=======
 }
 .page { display: none; }
 .page:target { display: block; }
@@ -124,3 +315,4 @@ color: var(--ghost);
 background: var(--witch-purple);
 padding: .5rem 1rem; border-radius: .5rem;
 }
+>>>>>>> 1ac2d4f5753da7f1ee68c21a3857bc9e100a8179
