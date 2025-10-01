@@ -1,8 +1,3 @@
-/* =========================================
-   Spooktacular.css – complete stylesheet
-   ========================================= */
-
-/* -------- Variables (from starter) -------- */
 :root{
     --pumpkin:#FF7518;
     --witch-purple:#4B0082;
@@ -10,8 +5,6 @@
     --black:#000;
     --ghost:#FFF;
     --space-1:0.25rem; --space-2:0.5rem; --space-3:1rem; --space-4:2rem;
-
-    /* additions */
     --maxw: 1100px;
     --radius: 14px;
   }
@@ -30,7 +23,6 @@
       linear-gradient(#000 0%, #0a0a0a 100%);
   }
 
-  /* Reduced motion support (from starter, kept) */
   @media (prefers-reduced-motion: reduce){
     * {
       animation-duration:0.01ms !important;
@@ -39,14 +31,14 @@
     }
   }
 
-  /* -------- Sticky header and nav (starter + upgrades) -------- */
+  /* -------- Sticky header and nav -------- */
   header {
     position: sticky; top: 0; z-index: 1000; width: 100%;
     background: var(--black); color: var(--ghost);
     display: flex; justify-content: space-between; align-items: center;
     padding: var(--space-2) var(--space-3);
     box-shadow: 0 2px 10px rgba(0,0,0,.6);
-    font-family: 'Creepster', cursive; /* spooky display font */
+    font-family: 'Creepster', cursive;
   }
 
   header .logo {
@@ -76,11 +68,9 @@
   /* -------- Main wrapper spacing -------- */
   main { max-width: var(--maxw); margin: 0 auto; padding: var(--space-4) var(--space-3); }
 
-  /* -------- Page targeting system (from starter) -------- */
   .page { display: none; }
   .page:target { display: block; }
 
-  /* Pager buttons (from starter) */
   .pager a {
     color: var(--ghost);
     background: var(--witch-purple);
@@ -172,6 +162,14 @@
     display: grid; gap: .5rem;
     padding-left: 1.25rem; list-style: disc;
   }
+  .about {
+    padding: var(--space-4) var(--space-3);
+    border-radius: var(--radius);
+    background:
+      linear-gradient(180deg, rgba(75,0,130,.35), rgba(0,0,0,.6)),
+      url('assets/images/forest-silhouette.png') center/cover no-repeat;
+    color: var(--ghost);
+  }
 
   /* -------- Panels and cards -------- */
   .panels{
@@ -206,7 +204,6 @@
   }
   .card__link:hover{ color: var(--pumpkin); border-color: var(--pumpkin); }
 
-  /* Use starter micro-interactions for inner icons */
   .card .ghost{ font-size: 1.6rem; }
 
   /* -------- Footer -------- */
@@ -219,7 +216,6 @@
     border-top: 1px solid rgba(255,255,255,.08);
   }
 
-  /* -------- Starter interactive snippets (kept) -------- */
   /* Hover-revealed ghost */
   .ghost {
     opacity: 0;
@@ -271,11 +267,11 @@
     margin: 20px auto;
     border-collapse: collapse;
     width: clamp(320px, 90%, 700px);
-    background-color: #fff;    /* force white background */
-    color: #111;               /* readable dark text inside the table */
+    background-color: #fff;
+    color: #111;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     border-radius: 10px;
-    overflow: hidden;          /* clip rounded corners */
+    overflow: hidden;
   }
 
   .roster-table th,
@@ -293,26 +289,6 @@
 
   .roster-table tr:hover{
     background-color: #f9f9f9;
-<<<<<<< HEAD
-  }
-
-  /* Optional: give a little separation from the hero */
-  .hero + .roster { margin-top: var(--space-4); }
-=======
-}
-.page { display: none; }
-.page:target { display: block; }
-.pager a {
-color: var(--ghost);
-background: var(--witch-purple);
-padding: .5rem 1rem; border-radius: .5rem;
 }
 
-.page { display: none; }
-.page:target { display: block; }
-.pager a {
-color: var(--ghost);
-background: var(--witch-purple);
-padding: .5rem 1rem; border-radius: .5rem;
-}
->>>>>>> 1ac2d4f5753da7f1ee68c21a3857bc9e100a8179
+.hero + .roster { margin-top: var(--space-4); }
