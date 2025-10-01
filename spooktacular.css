@@ -37,9 +37,46 @@ padding: .5rem 1rem; border-radius: .5rem;
     opacity: 1; transform: translateY(0);
     }
 
-    @keyframes morph {
-        0% { filter: hue-rotate(0); transform: scale(1); }
-        50%{ filter: hue-rotate(45deg); transform: scale(1.05); }
-        100%{ filter: hue-rotate(0); transform: scale(1); }
-        }
-        .werewolf:hover { animation: morph 1.6s ease-in-out infinite; }
+@keyframes morph {
+    0% { filter: hue-rotate(0); transform: scale(1); }
+    50%{ filter: hue-rotate(45deg); transform: scale(1.05); }
+    100%{ filter: hue-rotate(0); transform: scale(1); }
+    }
+    .werewolf:hover { animation: morph 1.6s ease-in-out infinite; }
+
+/* Header & Nav Customization */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-2) var(--space-3);
+  font-family: 'Creepster', cursive; /* spooky display font */
+  z-index: 1000;
+}
+
+header .logo {
+  font-size: 1.5rem;
+  color: var(--pumpkin);
+  text-shadow: 2px 2px 6px var(--witch-purple);
+}
+
+nav {
+  display: flex;
+  gap: var(--space-3);
+}
+
+nav a {
+  color: var(--ghost);
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+nav a:hover,
+nav a:focus {
+  border-bottom: 2px solid var(--pumpkin);
+}
+
+body {
+    background: url(spooky.jpg)
+}
