@@ -292,3 +292,19 @@
 }
 
 .hero + .roster { margin-top: var(--space-4); }
+
+/* Hide the checkbox (acts as the trigger) */
+#toggle {
+  display: none;
+}
+
+/* Text is invisible by default */
+#fadeText {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+/* When the checkbox is checked, fade the text in */
+#toggle:checked ~ #fadeText {
+  opacity: 1;
+}
