@@ -294,8 +294,8 @@
 .hero + .roster { margin-top: var(--space-4); }
 
 #fadeText {
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
+ opacity: 0;
+  transition: opacity 2s ease-in-out;
   font-family: 'Special Elite', cursive;
   font-size: 1.8rem;
   color: #e0dada; /* pale, ghostly gray */
